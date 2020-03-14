@@ -1,5 +1,5 @@
 <?php  
-class databaseConnection {
+class DatabaseConnection {
     private $hostname = 'localhost';
     private $username = 'root';
     private $password = '';
@@ -19,25 +19,28 @@ class databaseConnection {
   
 class User  
   
-{   
-  
-    public  function register($first_name, $last_name, $email, $pass,$dob) {  
-        $connection = new databaseConnection();
+{  
+     public  function register($first_name, $last_name, $email, $pass, $dob)
+     {  
+        $connection = new DatabaseConnection();
         $pass = md5($pass);  
-        $checkuser = mysqli_query($connection->connection,"Select id from users where email='$email'");  
+        $checkuser = mysqli_query($connection->connection, "SELECT id FROM users WHERE email='$email'");  
         $result = mysqli_num_rows($checkuser);  
-        if ($result == 0) {  
-            $register = mysqli_query($connection->connection,"Insert into users (first_name, last_name, email, password,dob) values ('$first_name','$last_name','$email','$pass','$dob')") or die(mysqli_error($connection->connection));  
+        if ($result == 0)
+         {  
+            $register = mysqli_query($connection->connection, "INSERT INTO users (first_name, last_name, email, password,dob) VALUES ('$first_name','$last_name','$email','$pass','$dob')") or die(mysqli_error($connection->connection));  
             return $register;  
-        } else {  
+        }
+        else 
+         {  
             return false;  
-        }  
+         }  
      }  
-  
+     
     public function login($email, $pass) { 
-        $connection = new databaseConnection(); 
+        $connection = new DatabaseConnection(); 
         $pass = md5($pass);  
-        $check = mysqli_query($connection->connection,"Select * from users where email='$email' and password='$pass'");  
+        $check = mysqli_query($connection->connection, "SELECT * FROM users WHERE email='$email' AND password='$pass'");  
         $data = mysqli_fetch_array($check);  
         $result = mysqli_num_rows($check);  
         if ($result == 1) {  
@@ -50,8 +53,8 @@ class User
     }  
   
     public  function fullname($id) {  
-        $connection = new databaseConnection();
-        $result = mysqli_query($connection->connection,"Select * from users where id='$id'");  
+        $connection = new DatabaseConnection();
+        $result = mysqli_query($connection->connection, "SELECT * FROM users WHERE id='$id'");  
         $row = mysqli_fetch_array($result);  
         echo $row['first_name'];  
     }  
