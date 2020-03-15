@@ -37,14 +37,14 @@
                     </tr>
                     <tr>
                         <td style="color:blue;">Last Name:</td>
-                        <td><input type='text' size="30" name='last_name' placeholder="Please enter your first name" required></td>
+                        <td><input type='text' size="30" name='last_name' placeholder="Please enter your last name" required></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td style="color:blue;">Date Of Birth:</td>
-                        <td><input type='date' size="30" name='dob' placeholder="Please enter your last name" required></td>
+                        <td><input type='date' size="30" name='dob'  required></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
